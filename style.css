@@ -1,0 +1,945 @@
+/* Estilos Generales */
+:root {
+    /* Tipografía */
+    --font-family-primary: "Poppins", sans-serif; /* Nueva fuente principal */
+    --font-family-headings: 'Georgia', serif; /* Fuente para encabezados (por defecto, si no se especifica Poppins) */
+    --font-family-secondary: "Cascadia Code", sans-serif; /* Nueva fuente secundaria */
+    --font-size-base: 16px;
+    --line-height-base: 1.6;
+
+    /* Colores Modo Claro (Por defecto) */
+    --color-background-light: #ffffff;
+    --color-text-light: #333333;
+    --color-primary-light: #007bff; /* Azul primario */
+    --color-secondary-light: #6c757d; /* Gris secundario */
+    --color-accent-light: #28a745; /* Verde para acentos */
+    --color-border-light: #dee2e6;
+    --color-link-light: var(--color-primary-light);
+    --color-link-hover-light: #1a334e;
+
+    /* Colores Modo Oscuro */
+    --color-background-dark: #090E16; /* Nuevo fondo azul muy oscuro */
+    --color-text-dark: #EAECEE;       /* Blanco grisáceo para texto */
+    --color-primary-dark: #5DADE2;    /* Azul claro brillante para primario/links */
+    --color-secondary-dark: #AAB7C4;  /* Gris medio para secundario */
+    --color-accent-dark: #F1C40F;     /* Amarillo para acentos */
+    --color-border-dark: #283747;     /* Azul oscuro desaturado para bordes */
+    --color-link-dark: var(--color-primary-dark);
+    --color-link-hover-dark: #85C1E9; /* Azul más claro para hover de enlaces */
+}
+
+/* Configuración inicial del tema (Claro por defecto) */
+body {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    background-color: var(--color-background-light);
+    color: var(--color-text-light);
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para cambio de tema */
+}
+
+/* Estilos para el modo oscuro */
+body.dark-mode {
+    background-color: var(--color-background-dark);
+    color: var(--color-text-dark);
+}
+
+body.dark-mode a {
+    color: var(--color-link-dark);
+}
+
+body.dark-mode a:hover {
+    color: var(--color-link-hover-dark);
+}
+
+body.dark-mode header {
+    background-color: #111A24;
+    border-bottom-color: var(--color-border-dark);
+}
+
+body.dark-mode footer {
+    background-color: #111A24;
+    border-top-color: var(--color-border-dark); /* Footer usa border-top */
+}
+
+body.dark-mode section {
+    border-bottom-color: var(--color-border-dark);
+}
+
+body.dark-mode .proyecto {
+    background-color: #0D141D; /* Azul oscuro (ligeramente diferente al header) para tarjetas */
+    border-color: var(--color-border-dark);
+}
+
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
+    color: var(--color-text-dark);
+}
+
+/* Estilos generales para enlaces */
+a {
+    color: var(--color-link-light);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-link-hover-light);
+    text-decoration: underline;
+}
+
+/* Encabezados */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-headings); /* Fuente por defecto para todos los encabezados */
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    color: var(--color-text-light); /* Color por defecto, se sobreescribe en dark-mode */
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+/* Contenedor principal para centrar contenido y limitar ancho */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header y Footer */
+header {
+    background-color: #f8f9fa; /* Un gris claro para header en modo claro */
+    padding: 1em 20px; /* Padding modificado para header, con espacio lateral */
+    /* text-align: left; es el por defecto, no es necesario declararlo explícitamente */
+    border-bottom: 1px solid var(--color-border-light);
+    position: relative; /* Para el posicionamiento absoluto del botón de tema */
+}
+
+footer {
+    background-color: #f8f9fa; /* Un gris claro para footer en modo claro */
+    padding: 1em 0; /* Padding original de footer */
+    text-align: center; /* Footer sigue centrado */
+    border-top: 1px solid var(--color-border-light);
+    border-bottom: none;
+    margin-top: 2em;
+}
+
+header h1 {
+    margin: 0;
+    color: var(--color-primary-light); /* Usar color primario para el título del sitio */
+    font-family: var(--font-family-secondary); /* Aplicar fuente secundaria */
+    /* El tamaño y otras propiedades del h1 se mantienen */
+}
+
+body.dark-mode header h1 {
+    color: var(--color-primary-dark);
+}
+
+/* Estilos para el botón de cambio de tema */
+#theme-toggle {
+    background: none;
+    border: 1px solid transparent; /* Sin borde visible, pero con espacio para focus */
+    color: inherit; /* Hereda el color del texto del header */
+    cursor: pointer;
+    font-size: 1.5rem; /* Tamaño del icono */
+    padding: 0.25em 0.5em;
+    border-radius: 5px;
+    position: absolute; /* Posicionamiento */
+    top: 20px; /* Ajusta según sea necesario */
+    right: 20px; /* Ajusta según sea necesario */
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+#theme-toggle:hover,
+#theme-toggle:focus {
+    background-color: rgba(0,0,0,0.1); /* Un ligero fondo al hacer hover/focus */
+    outline: none;
+}
+
+body.dark-mode #theme-toggle:hover,
+body.dark-mode #theme-toggle:focus {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* Contenedor del Nav (el span) */
+.nav-wrapper {
+    display: block;
+    position: absolute;
+    top: 70px; /* Ajusta según la altura del h1-container y el espaciado deseado */
+    left: 20px; /* Alineado con el padding del header */
+    z-index: 100;
+    background-color: var(--color-background-light);
+    border: 1px solid var(--color-border-light);
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 0.5em 0;
+
+    /* Estado inicial oculto - animación izquierda a derecha */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-20px); /* Empieza un poco a la izquierda para el efecto de aparición */
+    transform-origin: left center; 
+    max-width: 0; /* Inicialmente sin ancho */
+    overflow: hidden;
+    transition: opacity 0.3s ease-in-out, 
+                transform 0.3s ease-in-out, 
+                max-width 0.3s ease-in-out, 
+                visibility 0s linear 0.3s; /* Retrasar visibility */
+}
+
+body.dark-mode .nav-wrapper {
+    background-color: var(--color-background-dark);
+    border-color: var(--color-border-dark);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Mostrar el nav-wrapper cuando se hace hover en TODO el header */
+header:hover .nav-wrapper {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    max-width: 250px; /* Ancho del menú desplegado, ajústalo según tu contenido */
+    transition-delay: 0s, 0s, 0s, 0s; /* Resetear delays para mostrar */
+}
+
+/* Navegación - Estilos anteriores eran para nav principal, ahora ajustamos para el desplegable */
+.nav-wrapper nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* display: flex; Ya no es flex horizontal */
+    /* justify-content: center; */
+    /* gap: 15px; */
+}
+
+.nav-wrapper nav ul li {
+    /* Los li ahora serán bloques */
+}
+
+.nav-wrapper nav ul li a {
+    display: block; /* Hacer que todo el área del enlace sea clickeable */
+    padding: 0.75em 1.5em; /* Espaciado interno para los items del menú */
+    font-weight: normal; /* Podrías querer un peso diferente al nav principal */
+    color: var(--color-text-light); /* Color de texto normal */
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.nav-wrapper nav ul li a:hover {
+    background-color: var(--color-primary-light);
+    color: var(--color-background-light); /* Texto claro sobre fondo primario */
+    text-decoration: none; /* Quitar subrayado del hover general de 'a' */
+}
+
+body.dark-mode .nav-wrapper nav ul li a {
+    color: var(--color-text-dark);
+}
+
+body.dark-mode .nav-wrapper nav ul li a:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-background-dark); /* Texto oscuro (o claro según contraste con primary-dark) */
+}
+
+/* Secciones */
+section {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 1em;
+    /* La fuente por defecto para h2 es --font-family-headings */
+}
+
+/* Aplicar Roboto a los h2 específicos */
+#sobre-mi h2,
+#proyectos h2,
+#habilidades h2,
+#contacto h2 {
+    font-family: var(--font-family-secondary);
+}
+
+/* Estilos para la sección de proyectos */
+#proyectos {
+    padding: 4em 0;
+}
+
+.proyectos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2em;
+    padding: 1em;
+}
+
+.proyecto {
+    background-color: var(--color-background-light);
+    border: 1px solid var(--color-border-light);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+body.dark-mode .proyecto {
+    background-color: #111A24;
+    border-color: var(--color-border-dark);
+}
+
+.proyecto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .proyecto:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.proyecto-preview {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.proyecto-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.proyecto:hover .proyecto-preview img {
+    transform: scale(1.05);
+}
+
+.proyecto-info {
+    padding: 1.5em;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.proyecto-info h3 {
+    margin: 0;
+    color: var(--color-primary-light);
+    font-size: 1.5em;
+}
+
+body.dark-mode .proyecto-info h3 {
+    color: var(--color-primary-dark);
+}
+
+.proyecto-info p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+body.dark-mode .proyecto-info p {
+    color: var(--color-text-dark);
+}
+
+.proyecto-links {
+    display: flex;
+    gap: 1em;
+    margin-top: auto;
+}
+
+.btn-proyecto, .btn-codigo {
+    padding: 0.8em 1.5em;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-align: center;
+    flex: 1;
+}
+
+.btn-proyecto {
+    background-color: var(--color-primary-light);
+    color: white;
+}
+
+.btn-codigo {
+    background-color: transparent;
+    border: 1px solid var(--color-primary-light);
+    color: var(--color-primary-light);
+}
+
+body.dark-mode .btn-proyecto {
+    background-color: var(--color-primary-dark);
+    color: white;
+}
+
+body.dark-mode .btn-codigo {
+    border-color: var(--color-primary-dark);
+    color: var(--color-primary-dark);
+}
+
+.btn-proyecto:hover {
+    background-color: var(--color-link-hover-light);
+    color: white;
+    transform: translateY(-2px);
+    
+    
+}
+
+.btn-codigo:hover {
+    background-color: var(--color-primary-light);
+    color: white;
+    transform: translateY(-2px);
+}
+
+body.dark-mode .btn-proyecto:hover {
+    background-color: var(--color-primary-light);
+    color: var(--color-background-dark)
+}
+
+body.dark-mode .btn-codigo:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-background-dark);
+}
+
+/* Responsive para la sección de proyectos */
+@media (max-width: 768px) {
+    .proyectos-grid {
+        grid-template-columns: 1fr;
+        padding: 1em;
+    }
+
+    .proyecto-preview {
+        height: 180px;
+    }
+}
+
+/* Diseño Responsivo Básico */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Navegación vertical en pantallas pequeñas */
+        align-items: center;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    #habilidades ul {
+        justify-content: flex-start; /* Alinear a la izquierda en móviles */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px; /* Reducir tamaño de fuente base en móviles muy pequeños */
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Utilidad para cambiar el tema (si se usa un botón en JS) */
+/* .theme-toggler { ... } */
+
+/* Para usar con prefers-color-scheme (alternativa a la clase .dark-mode) */
+/*
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--color-background-dark);
+        color: var(--color-text-dark);
+    }
+
+    a {
+        color: var(--color-link-dark);
+    }
+
+    a:hover {
+        color: var(--color-link-hover-dark);
+    }
+
+    header, footer {
+        background-color: #2c2c2c;
+        border-bottom-color: var(--color-border-dark);
+        border-top-color: var(--color-border-dark);
+    }
+
+    section {
+        border-bottom-color: var(--color-border-dark);
+    }
+
+    .proyecto {
+        background-color: #252525;
+        border-color: var(--color-border-dark);
+    }
+
+    h1, h2, h3 {
+        color: var(--color-text-dark);
+    }
+
+    header h1 {
+        color: var(--color-primary-dark);
+    }
+
+     #habilidades ul li {
+        background-color: var(--color-primary-dark);
+        color: var(--color-text-dark);
+    }
+}
+*/
+
+/* Contenedor para el H1 y su icono */
+.h1-container {
+    display: flex;
+    align-items: center; /* Alinea verticalmente el texto y el icono */
+    gap: 0.2em; /* Reducido el espacio entre el texto H1 y el icono */
+}
+
+/* Icono al lado del H1 */
+.h1-icon {
+    display: inline-block;
+    width: 1.5em;  /* Ancho relativo al font-size del H1 */
+    height: 1.5em; /* Alto relativo al font-size del H1 */
+    background-color:#007bff; /* Hereda el color del texto del elemento padre (h1-container, que a su vez lo hereda de h1) */
+    
+    /* Asegúrate de que 'img/header-arrow.svg' sea la ruta correcta a tu SVG */
+    mask-image: url('img/Vector.svg');
+    -webkit-mask-image: url('img/Vector.svg'); /* Para compatibilidad con Safari/Chrome */
+    
+    mask-size: contain;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    
+    transform: rotate(90deg) translateY(0.3em); /* Rotar y desplazar MÁS hacia abajo */
+    flex-shrink: 0; /* Evita que el icono se encoja si no hay espacio */
+    transition: transform 0.4s ease-in-out; /* Animación para la rotación */
+}
+
+/* Animación del icono al hacer hover sobre el contenedor del H1 */
+.h1-container:hover .h1-icon {
+    transform: rotate(0deg) translateY(0.3em); /* Rotar a su estado natural, manteniendo el nuevo desplazamiento Y */
+}
+
+body.dark-mode header h1 {
+    color: var(--color-primary-dark);
+}
+
+/* Estilos para la sección Hero */
+#hero {
+    position: relative; /* Necesario para el posicionamiento de los SVGs flotantes */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    min-height: 80vh; /* Asegura que haya suficiente espacio para los SVGs */
+    overflow: hidden; /* Contiene los SVGs dentro de la sección */
+}
+
+.hero-content {
+    flex: 1 1 60%; /* Permite que el contenido de texto crezca y tome aproximadamente el 60% */
+    /* O puedes usar: flex-basis: 60%; */
+}
+
+/* Aumentar tamaño de fuente para h2 y p en la sección hero */
+#hero .hero-content h2 {
+    font-family: var(--font-family-primary); /* Asegurar que usa Poppins */
+    font-weight: 700; /* Poppins Bold */
+    font-size: 5.5rem; /* Letras grandes para el título principal */
+    margin-bottom: 0.3em; /* Ajustar margen inferior si es necesario */
+    line-height: 1.2; /* Ajustar interlineado para fuentes grandes */
+    position: relative; /* Necesario para el posicionamiento de los pseudo-elementos */
+    /* Considerar ajustar el color del texto original si el efecto lo requiere, ej: color: transparent; o un gris */
+}
+
+/* Efecto Anaglifo para el H2 de la sección Hero */
+#hero .hero-content h2::before,
+#hero .hero-content h2::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Detrás del texto principal si el texto principal no es transparente */
+}
+
+#hero .hero-content h2::before {
+    color: rgba(255, 0, 0, 0.7); /* Rojo con algo de transparencia */
+    transform: translate(-2px, -2px) skewX(-1deg) skewY(-1deg); /* Desplazamiento y ligera inclinación */
+    /* Alternativa de desplazamiento más simple: transform: translate(-2px, -2px); */
+}
+
+#hero .hero-content h2::after {
+    color: rgba(0, 195, 255, 0.941); /* Cian con algo de transparencia */
+    transform: translate(2px, 2px) skewX(1deg) skewY(1deg); /* Desplazamiento y ligera inclinación opuesta */
+    /* Alternativa de desplazamiento más simple: transform: translate(2px, 2px); */
+}
+
+#hero .hero-content p {
+    font-family: var(--font-family-primary); /* Asegurar que usa Poppins */
+    font-weight: 400; /* Poppins Regular */
+    font-size: 1.25rem; /* Un poco más grande para el párrafo de introducción */
+    line-height: 1.7; /* Ajustar interlineado */
+}
+
+.hero-image {
+    flex: 0 1 35%; /* Permite que la imagen tome aproximadamente el 35%, sin crecer, pero puede encogerse */
+    /* O puedes usar: max-width: 35%; */
+    max-width: 400px; /* Un máximo absoluto para que no sea demasiado grande en pantallas anchas */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 8px; /* Bordes redondeados opcionales */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra sutil opcional */
+}
+
+/* Contenedor de SVGs flotantes */
+.floating-svgs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Permite que los eventos pasen a través del contenedor */
+}
+
+/* Estilos para los SVGs individuales */
+.floating-svg {
+    position: absolute;
+    width: 100px; /* Tamaño base para los SVGs */
+    height: auto;
+    pointer-events: auto; /* Permite interactuar con los SVGs */
+    cursor: move; /* Indica que el elemento es arrastrable */
+    transition: transform 0.3s ease;
+    user-select: none; /* Previene la selección de texto al arrastrar */
+}
+
+/* Posiciones iniciales de los SVGs */
+.svg-1 {
+    top: 20%;
+    left: 10%;
+    transform: rotate(15deg);
+}
+
+.svg-2 {
+    top: 40%;
+    right: 15%;
+    transform: rotate(-10deg);
+}
+
+.svg-3 {
+    bottom: 30%;
+    left: 25%;
+    transform: rotate(5deg);
+}
+
+/* Efecto hover para los SVGs */
+.floating-svg:hover {
+    transform: scale(1.1) rotate(5deg);
+    z-index: 10; /* Asegura que el SVG hover esté por encima de los demás */
+}
+
+/* Ajustes responsivos para los SVGs */
+@media (max-width: 768px) {
+    #hero {
+        flex-direction: column; /* Apila el texto y la imagen verticalmente */
+        text-align: center; /* Centra el texto cuando está apilado */
+    }
+
+    .hero-content {
+        flex-basis: auto; /* Resetea la base del flex item */
+        margin-bottom: 1.5em; /* Espacio entre el texto y la imagen cuando están apilados */
+    }
+
+    .hero-image {
+        flex-basis: auto; /* Resetea la base del flex item */
+        max-width: 70%; /* Permite que la imagen sea un poco más ancha en pantallas pequeñas */
+        margin-left: auto; /* Centra la imagen */
+        margin-right: auto;
+    }
+
+    .floating-svg {
+        width: 80px; /* SVGs más pequeños en móviles */
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-svg {
+        width: 60px; /* SVGs aún más pequeños en pantallas muy pequeñas */
+    }
+}
+
+/* Estilos para el botón de me gusta */
+.btn-like {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5em;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .btn-like {
+    background-color: rgba(17, 26, 36, 0.9);
+}
+
+.btn-like:hover {
+    transform: scale(1.1);
+}
+
+.like-icon {
+    fill: var(--color-primary-light);
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+body.dark-mode .like-icon {
+    fill: var(--color-primary-dark);
+}
+
+.btn-like.liked .like-icon {
+    fill: #e91e63; /* Color rosa para el corazón */
+    animation: heartBeat 0.5s ease;
+}
+
+.like-count {
+    font-size: 0.9em;
+    color: var(--color-text-light);
+    font-weight: 500;
+}
+
+body.dark-mode .like-count {
+    color: var(--color-text-dark);
+}
+
+@keyframes heartBeat {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#habilidades {
+    padding: 4rem 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.skills-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 2rem 0;
+    position: relative;
+}
+
+.skills-track {
+    display: flex;
+    gap: 2rem;
+    animation: scroll 20s linear infinite;
+    width: max-content;
+    padding: 0 2rem;
+}
+
+/* Duplicar los elementos para crear un efecto continuo */
+.skills-track::after {
+    content: "";
+    display: flex;
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.skills-track:hover {
+    animation-play-state: paused;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 100px;
+    flex-shrink: 0; /* Evita que los elementos se compriman */
+}
+
+.skill-item img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    transition: transform 3s ease;
+    filter: brightness(0.9);
+}
+
+.skill-item:hover img {
+    transform: scale(1.2);
+    filter: brightness(1);
+}
+
+.skill-item span {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    white-space: nowrap; /* Evita que el texto se rompa en múltiples líneas */
+}
+
+body.dark-mode .skill-item span {
+    color: var(--color-text-dark);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    0% {
+        transform: translateX(-70%);
+    }
+}
+
+.contacto-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: var(--color-text-light);
+}
+
+body.dark-mode .form-group label {
+    color: var(--color-text-dark);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.8rem;
+    border: 1px solid var(--color-border-light);
+    border-radius: 5px;
+    font-family: var(--font-family-primary);
+    background-color: var(--color-background-light);
+    color: var(--color-text-light);
+    transition: border-color 0.3s ease;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+    background-color: var(--color-background-dark);
+    color: var(--color-text-dark);
+    border-color: var(--color-border-dark);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary-light);
+}
+
+body.dark-mode .form-group input:focus,
+body.dark-mode .form-group textarea:focus {
+    border-color: var(--color-primary-dark);
+}
+
+.btn-submit {
+    padding: 1rem 2rem;
+    background-color: var(--color-primary-light);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+body.dark-mode .btn-submit {
+    background-color: var(--color-primary-dark);
+}
+
+.btn-submit:hover {
+    background-color: var(--color-link-hover-light);
+    transform: translateY(-2px);
+}
+
+body.dark-mode .btn-submit:hover {
+    background-color: var(--color-link-hover-dark);
+}
+
+.form-status {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    display: none;
+}
+
+.form-status.success {
+    display: block;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.form-status.error {
+    display: block;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+} 

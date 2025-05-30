@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="h1-container">
+            <h1>Camilode</h1> <span class="h1-icon"></span>
+        </div>
+        <span class="nav-wrapper">
+            <nav>
+                <ul>
+                    <li><a href="#sobre-mi">Sobre mí</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#habilidades">Habilidades</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </span>
+        <button id="theme-toggle" aria-label="Cambiar tema">
+            <span id="theme-icon">🌙</span>
+        </button>
+    </header>
+
+    <main>
+        <section id="hero">
+          
+            <div class="hero-content">
+                <h2 data-text="Hey, soy Camilo — Frontend Developer.">Hey, soy Camilo — Frontend Developer.</h2>
+                <p>Diseño y construyo experiencias web interactivas y atractivas.</p>
+            </div>
+            <div class="floating-svgs">
+                <img src="./img/SVG/pantalla uno.svg" alt="SVG decorativo 1" class="floating-svg svg-1">
+                <img src="./img/SVG/pantalla dos .svg" alt="SVG decorativo 2" class="floating-svg svg-2">
+                <img src="./img/SVG/pantalla tres .svg" alt="SVG decorativo 3" class="floating-svg svg-3">
+            </div>
+            <img src="./img/Recurso 1.png" alt="Imagen principal del portafolio" class="hero-image">
+        </section>
+
+        <section id="sobre-mi">
+            <h2>Sobre mí</h2>
+            <article>
+                <p> Ingeniero de Software y desarrollador web autodidacta, apasionado por
+                    aprender y aplicar nuevas tecnologías. Tengo experiencia en el desarrollo de interfaces
+                    dinámicas y optimizadas, manejo del DOM con JavaScript y creación de componentes
+                    reutilizables en React. Cuento con habilidades en trabajo colaborativo, pensamiento crítico
+                    y adaptabilidad. Además, utilizo herramientas como GitHub Copilot, entre otros LLMs para
+                    optimizar mi productividad.</p>
+            </article>
+        </section>
+
+        <section id="proyectos">
+            <h2>Proyectos Destacados</h2>
+            <div class="proyectos-grid">
+                <article class="proyecto">
+                    <div class="proyecto-preview">
+                        <img src="./img/Encriptador.png" alt="Vista previa del Encriptador">
+                    </div>
+                    <div class="proyecto-info">
+                        <h3>Encriptador</h3>
+                        <p>Encriptador de texto con JavaScript</p>
+                        <div class="proyecto-links">
+                            <a href="https://camilodev61.github.io/Challenge-1/" target="_blank" class="btn-proyecto">Ver proyecto</a>
+                            <a href="https://github.com/camilodev61/Challenge-1" target="_blank" class="btn-codigo">Ver código</a>
+                        </div>
+                        <button class="btn-like" aria-label="Me gusta">
+                            <svg class="like-icon" viewBox="0 0 24 24" width="24" height="24">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                            <span class="like-count">0</span>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="proyecto">
+                    <div class="proyecto-preview">
+                        <img src="./img/Adivina el numero.png" alt="Vista previa del Juego">
+                    </div>
+                    <div class="proyecto-info">
+                        <h3>Juego decifra el numero</h3>
+                        <p>Juego de adivinanza con JavaScript</p>
+                        <div class="proyecto-links">
+                            <a href="#" target="_blank" class="btn-proyecto">Ver proyecto</a>
+                            <a href="#" target="_blank" class="btn-codigo">Ver código</a>
+                        </div>
+                        <button class="btn-like" aria-label="Me gusta">
+                            <svg class="like-icon" viewBox="0 0 24 24" width="24" height="24">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                            <span class="like-count">0</span>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="proyecto">
+                    <div class="proyecto-preview">
+                        <img src="./img/calculadora.png" alt="Vista previa de la Calculadora">
+                    </div>
+                    <div class="proyecto-info">
+                        <h3>Calculadora</h3>
+                        <p>Calculadora con JavaScript</p>
+                        <div class="proyecto-links">
+                            <a href="https://camilodev61.github.io/Calculadora/" target="_blank" class="btn-proyecto">Ver proyecto</a>
+                            <a href="https://github.com/camilodev61/Calculadora" target="_blank" class="btn-codigo">Ver código</a>
+                        </div>
+                        <button class="btn-like" aria-label="Me gusta">
+                            <svg class="like-icon" viewBox="0 0 24 24" width="24" height="24">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                            <span class="like-count">0</span>
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="habilidades">
+            <h2>Habilidades</h2>
+            <div class="skills-container">
+                <div class="skills-track">
+                    <div class="skill-item">
+                        <img src="./img/Logos/html5.svg" alt="HTML5" width="40" height="40">
+                        <span>HTML5</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="./img/Logos/css.svg" alt="CSS3" width="40" height="40">
+                        <span>CSS3</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="./img/Logos/javascript.svg" alt="JavaScript" width="40" height="40">
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="./img/Logos/cursor-ai.svg" alt="Cursor" width="40" height="40">
+                        <span>Cursor</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="./img/Logos/git.svg" alt="Git" width="40" height="40">
+                        <span>Git</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="./img/Logos/github.svg" alt="GitHub" width="40" height="40">
+                        <span>GitHub</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="./img/Logos/githubcopilot.svg" alt="githubcopilot" width="40" height="40">
+                        <span>GitHub Copilot</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="./img/Logos/figma.svg" alt="figma" width="40" height="40">
+                        <span>Figma</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="./img/Logos/mysql.svg" alt="Mysql" width="40" height="40">
+                        <span>Mysql</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="./img/Logos/lucia.svg" alt="Lucidchart" width="40" height="40">
+                        <span>Lucidchart</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="./img/Logos/photoshop.svg" alt="Photoshop" width="40" height="40">
+                        <span>Photoshop</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="./img/Logos/illustrator.svg" alt="Illustrator" width="40" height="40">
+                        <span>Illustrator</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <div class="contacto-container">
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Asunto</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                </form>
+                <div id="form-status" class="form-status"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Camilodev. Todos los derechos reservados.</p>
+    </footer>
+
+    <audio id="hover-sound" preload="auto">
+        <source src="./Audios/kick-drum-263837.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Agregar EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
