@@ -4,7 +4,7 @@ Este es mi portafolio personal como desarrollador front-end. Aquí muestro algun
 
 ## 🌐 Demo en línea
 Puedes ver la versión publicada aquí:  
-🔗 [https://TU_USUARIO.github.io/mi_portafolio](https://TU_USUARIO.github.io/mi_portafolio)
+🔗 [https://TU_USUARIO.github.io/mi_portafolio](https://camilodev61.github.io/mi-portafolio/)
 
 ## 📁 Estructura del proyecto
 
